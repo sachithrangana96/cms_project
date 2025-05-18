@@ -28,11 +28,11 @@ public class AppResponse<T> {
     private static final Integer STATUS_CODE_ERROR = 0;
     private static final String STATUS_ERROR = "Error";
 
-    public static <T> AppResponse<T> accepted() {
-        MetaDataResponseDto metaDto = MetaDataResponseDto.builder().code(HttpStatus.ACCEPTED.value())
-                .message(HttpStatus.ACCEPTED.name()).build();
+    public static <T> AppResponse<T> created(T data) {
+        MetaDataResponseDto metaDto = MetaDataResponseDto.builder().code(HttpStatus.CREATED.value())
+                .message(HttpStatus.CREATED.name()).build();
         logger.info("Returning an accepted response.");
-        return AppResponse.<T>builder().meta(metaDto).build();
+        return AppResponse.<T>builder().data(data).meta(metaDto).build();
     }
 
     public static <T> AppResponse<T> ok(T data) {

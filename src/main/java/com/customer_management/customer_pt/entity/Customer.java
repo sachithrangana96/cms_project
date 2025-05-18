@@ -1,11 +1,14 @@
 package com.customer_management.customer_pt.entity;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Builder
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,8 +23,9 @@ public class Customer {
     @Column(nullable = false,unique = true)
     private String nic;
 
+
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<MobileNumber> mobileNumber;
+    private List<MobileNumber> mobileNumbers;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Address> address;
@@ -44,7 +48,6 @@ public class Customer {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.nic = nic;
-        this.mobileNumber = mobileNumber;
         this.address = address;
         this.familyMembers = familyMembers;
     }
@@ -81,13 +84,7 @@ public class Customer {
         this.nic = nic;
     }
 
-    public List<MobileNumber> getMobileNumber() {
-        return mobileNumber;
-    }
 
-    public void setMobileNumber(List<MobileNumber> mobileNumber) {
-        this.mobileNumber = mobileNumber;
-    }
 
     public List<Address> getAddress() {
         return address;
@@ -103,6 +100,14 @@ public class Customer {
 
     public void setFamilyMembers(List<Customer> familyMembers) {
         this.familyMembers = familyMembers;
+    }
+
+    public List<MobileNumber> getMobileNumbers() {
+        return mobileNumbers;
+    }
+
+    public void setMobileNumbers(List<MobileNumber> mobileNumbers) {
+        this.mobileNumbers = mobileNumbers;
     }
 
     @Override

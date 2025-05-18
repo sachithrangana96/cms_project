@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "5cb30e8d-7da8-4c6a-a21f-ff70930d4909",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29733316"
+	},
+	"item": [
+		{
+			"name": "Customer Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"hone Doe\",\n  \"nic\": \"985734567V\",\n  \"dateOfBirth\": \"1990-01-01\",\n  \"mobileNumbers\": [\n    {\n        \"id\":3,\n      \"number\": \"0761004560\"\n    },\n    {\n        \"id\":4,\n      \"number\": \"0700457678\"\n    },\n      {\n        \"id\":null,\n      \"number\": \"0700400000\"\n    }\n\n  ],\n  \"addresses\": [\n    {\n        \"id\":5,\n      \"addressLine1\": \"123 Main Street beautiful\",\n      \"addressLine2\": \"Apt 4B\",\n      \"city\": \"Kagalle\",\n      \"country\": \"Sri Lanka\"\n    },\n    {\n        \"id\":6,\n      \"addressLine1\": \"400 Second Street\",\n      \"addressLine2\": \"Floor 2\",\n      \"city\": \"Rathnapura\",\n      \"country\": \"Sri Lanka\"\n    },\n    {\n        \"id\":null,\n      \"addressLine1\": \"100 Main Street\",\n      \"addressLine2\": \"Apto\",\n      \"city\": \"galle\",\n      \"country\": \"Sri Lanka\"\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/customers/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Custoners",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"salman Doe\",\n  \"nic\": \"954875855\",\n  \"dateOfBirth\": \"1954-01-01\",\n  \"mobileNumbers\": [\n    {\n        \"id\":8,\n      \"number\": \"0768521477\"\n    },\n    {\n        \"id\":7,\n      \"number\": \"0700000008\"\n    }\n\n  ],\n  \"addresses\": [\n    {\n        \"id\":9,\n      \"addressLine1\": \"lin1\",\n      \"addressLine2\": \"La 4B\",\n      \"city\": \"Rabukkana\",\n      \"country\": \"Sri Lanka\"\n    },\n    {\n     \"id\":10, \n      \"addressLine1\": \"Line2\",\n      \"addressLine2\": \"Floor 2\",\n      \"city\": \"kalawana\",\n      \"country\": \"Sri Lanka\"\n    }\n  ],\n  \"familyMemberIds\":[1]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/customers?pageSize=2&pageNumber=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "pageNumber",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

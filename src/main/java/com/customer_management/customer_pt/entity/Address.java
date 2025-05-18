@@ -1,9 +1,12 @@
 package com.customer_management.customer_pt.entity;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Builder
 @Table(name = "address")
 public class Address {
     @Id

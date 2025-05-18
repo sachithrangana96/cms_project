@@ -1,28 +1,32 @@
 package com.customer_management.customer_pt.entity;
 
+import lombok.Builder;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "mobile_number")
+@Builder
 public class MobileNumber {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String number;
 
     @ManyToOne
-    @JoinColumn(name ="customer_id")
+    @JoinColumn(name="customer_id")
     private Customer customer;
 
     public MobileNumber() {
     }
 
-    public MobileNumber(Long id, Customer customer, String number) {
+    public MobileNumber(Long id, String number, Customer customer) {
         this.id = id;
-        this.customer = customer;
         this.number = number;
+        this.customer = customer;
     }
 
     public Long getId() {
